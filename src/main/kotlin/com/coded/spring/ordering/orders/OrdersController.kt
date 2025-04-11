@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
-@RestController
-class Controller(
+@RestController //this tells Spring that this class is in charge of listening to the internet and sending back answers
+class Controller( //this is saying whenever Spring creates this controller, please give it these two objects to use:
     val ordersRepository: OrdersRepository,
     val userRepository: UserRepository,
 ) {
