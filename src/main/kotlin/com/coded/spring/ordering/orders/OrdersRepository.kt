@@ -20,16 +20,17 @@ data class OrderEntity(
     var id: Long? = null,
 
     @ManyToOne
-    @JoinColumn(name= "user_id") //Creates a column in the orders table called user_id. No need to declare a user_id cause Spring handles it automatically when i define the relationship
+    @JoinColumn(name= "user_id") //Creates the foreign key, a column in the orders table called user_id. (No need to declare a user_id cause Spring handles it automatically when i define the relationship)
     val user: UserEntity,
     //If the relationship is: Many Orders can belong to One User, then the User will be brought to the OrderEntity as an Object or as a whole UserEntity
 
     val restaurant: String,
 
     @OneToMany(mappedBy = "order", cascade = [CascadeType.ALL]) //cascade means: “If I save an order, also save their items. If I delete an order, delete their items too.”. without it I’d have to manually save the order then save its items one by one
-    val items: List<ItemEntity> = listOf()
+    var items: List<ItemEntity> = listOf()
     //If the relationship is: One Order can have Many Items, then the Items will be brought to the OrderEntity as a List
     //This lets the order list its items, but the actual foreign key is in the items table, not the orders table (only the child "the Many" holds the foreign key)
+    // this is saying: If I get an order from the database, and I want to see its items, look in the items table and find all the rows where order_id = this order’s id
 ){
     constructor() : this(null, UserEntity(), "", listOf()) //Spring needs this to be able to create a blank User object behind the scenes.
 }
