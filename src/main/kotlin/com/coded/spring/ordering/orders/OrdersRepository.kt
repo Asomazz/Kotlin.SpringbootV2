@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository
 @Repository //This annotates that this file is gonna be the repository. I dont need to write it here since am using JpaRepository, I will need to write it if am creating my own custom repository class (not just an interface)
 interface OrdersRepository : JpaRepository<OrderEntity, Long>{ //This line creates the repository, and Jpa lets the repository talk to the DB and gives me all the ready functions to use (.save , .findall)
   // <OrderEntity, Long> means: This repository is for the orders table, and the ID type (the @Id column in the table) is a Long number
-//  fun findByUser_Id(user_id: Long): List<OrderEntity>
 }
 
 @Entity //this indicates that this class should become a table

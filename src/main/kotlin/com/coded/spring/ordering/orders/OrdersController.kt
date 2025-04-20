@@ -15,12 +15,10 @@ class Controller( //this is saying whenever Spring creates this controller, plea
     val itemsRepository: ItemsRepository
 ) {
 
-//    @GetMapping("/order")
-//    fun homePage() =  "Welcome to Ooreedoo, please place your order!"
-//
-//    @GetMapping("/orders/v1/list")
-//    fun orders() = ordersService.listOrders()
-//
+    @GetMapping("/order")
+    fun homePage() =  "Welcome to Ooreedoo, please place your order!"
+
+
 //    @GetMapping("/orders")
 //    fun listOrders(): List<Order> = ordersRepository.findAll()
 
