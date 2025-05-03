@@ -1,10 +1,8 @@
-package com.coded.spring.ordering.items
+package com.coded.spring.com.coded.spring.ordering.items
 
 import com.coded.spring.ordering.orders.OrderEntity
 import jakarta.persistence.*
-import org.springframework.data.jpa.repository.JpaRepository
 
-interface ItemsRepository: JpaRepository<ItemEntity, Long>
 
 @Entity
 @Table(name="items")
@@ -22,5 +20,5 @@ data class ItemEntity(
     val order: OrderEntity
 
 ){
-    constructor() : this(null, "", 0,OrderEntity() )
+    constructor() : this(null, "", 0, OrderEntity() )
 }
